@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use nightly toolchain
-      uses: actions-rs/toolchain
+      uses: actions-rs/toolchain@v1
       with:
         toolchain: nightly
         default: true
