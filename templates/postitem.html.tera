@@ -1,0 +1,6 @@
+<div class="container preview">
+    <h2><a href='/blog?id={{post.id}}'>{{post.title}}</a></h2>
+    <h3>
+        {{post.subtitle}} // {{post.date}}
+    </h3>
+</div>

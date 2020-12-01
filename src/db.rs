@@ -23,6 +23,11 @@ pub fn get_posts() -> Vec<Post> {
         .expect("Error loading posts")
 }
 
+pub fn get_post_by_id(id: i32) -> Result<Post, diesel::result::Error> {
+    let connection = establish_connection();
+    posts.find(id).first(&connection)
+}
+
 #[cfg(test)]
 mod test {
     use super::*;

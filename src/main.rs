@@ -10,14 +10,15 @@ extern crate dotenv;
 
 mod db;
 
+use db::models::Post;
+
 use rocket::http::RawStr;
 use rocket::Request;
 
-use rocket_contrib::templates::Template;
 use rocket_contrib::serve::StaticFiles;
+use rocket_contrib::templates::Template;
 
 use serde::Serialize;
-
 
 #[derive(Serialize)]
 enum NavbarOption {
@@ -26,31 +27,52 @@ enum NavbarOption {
     Resume,
 }
 
-
-#[derive(Serialize)]
-struct Context {
-    navbar_status: NavbarOption,
-}
-
-
+/// Defines routing for landing page at `/`
 #[get("/")]
 fn index() -> Template {
-    let context = Context {
+
+    #[derive(Serialize)]
+    struct HomeContext {
+        navbar_status: NavbarOption,
+    }
+
+    let context = HomeContext {
         navbar_status: NavbarOption::Home,
     };
-    let serialized = serde_json::to_string(&context).unwrap();
-    println!("home context serialized: {}", serialized);
     Template::render("home", context)
 }
 
+/// Defines routing for blog page at `/blog`
 #[get("/blog")]
-fn blog() -> &'static str {
-    "blog"
+fn blog() -> Template {
+    #[derive(Serialize)]
+    struct PostListContext {
+        navbar_status: NavbarOption,
+        posts: Vec<Post>,
+    }
+
+    let posts = db::get_posts();
+    let context = PostListContext{
+        navbar_status: NavbarOption::Blog,
+        posts: posts
+    };
+    Template::render("blog", context)
 }
 
 #[get("/blog?<id>")]
-fn blog_id(id: &RawStr) -> String {
-    format!("blog entry {}", id.as_str())
+fn blog_id(id: &RawStr) -> Template {
+    #[derive(Serialize)]
+    struct PostContext {
+        navbar_status: NavbarOption,
+        post: Post,
+    }
+    let id = id.url_decode().unwrap().parse::<i32>().unwrap();
+    let post = db::get_post_by_id(id).expect("Could not find id in db");
+    let context = PostContext{
+        navbar_status: NavbarOption::Blog,
+        post: post,
+    };
+    Template::render("post", context)
 }
 
 #[get("/resume")]
@@ -60,7 +82,7 @@ fn resume() -> &'static str {
 
 #[catch(404)]
 fn not_found(req: &Request) -> String {
-    format!("Page Not Found at '{}'", req.uri())
+    format!("Not Found: {}", req)
 }
 
 fn main() {

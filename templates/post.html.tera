@@ -1,0 +1,22 @@
+{% extends "base" %}
+{% block content %}
+<div class="section content" style="margin-top: 5%;">
+    <div class="container info">
+        <div class="row">
+            <div class="two columns">
+                <a href="/blog">
+                    <i class="nav fas fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="ten columns">
+                <!--<h2>{{post.title}}</h2>-->
+                <!--<h5>{{post.subtitle}} // {{post.date}}</h5>-->
+                {% include 'postitem' %}
+            </div>
+        </div>
+    </div>
+    <div class="container post">
+        {{ post.content | safe }}
+    </div>
+</div>
+{% endblock content %}
