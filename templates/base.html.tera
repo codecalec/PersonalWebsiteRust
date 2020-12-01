@@ -54,7 +54,8 @@
   </head>
   <body>
     {% include "navbar" %}
-    Home Page goes here
+    {% block content %}
+    {% endblock content %}
     {% include "footer" %}
   </body>
 </html>

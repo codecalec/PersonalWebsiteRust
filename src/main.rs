@@ -7,11 +7,11 @@ use rocket::http::RawStr;
 use rocket::Request;
 
 use rocket_contrib::templates::Template;
+use rocket_contrib::serve::StaticFiles;
 
 use serde::Serialize;
 
 #[derive(Serialize)]
-#[serde(tag = "type")]
 enum NavbarOption {
     Home,
     Blog,
@@ -30,7 +30,9 @@ fn index() -> Template {
     let context = Context {
         navbar_status: NavbarOption::Home,
     };
-    Template::render("base", context)
+    let serialized = serde_json::to_string(&context).unwrap();
+    println!("home context serialized: {}", serialized);
+    Template::render("home", context)
 }
 
 #[get("/blog")]
@@ -57,6 +59,7 @@ fn main() {
     rocket::ignite()
         .register(catchers![not_found])
         .mount("/", routes![index, blog, blog_id, resume])
+        .mount("/static", StaticFiles::from("static"))
         .attach(Template::fairing())
         .launch();
 }
