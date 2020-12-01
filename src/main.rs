@@ -3,6 +3,13 @@
 #[macro_use]
 extern crate rocket;
 
+#[macro_use]
+extern crate diesel;
+
+extern crate dotenv;
+
+mod db;
+
 use rocket::http::RawStr;
 use rocket::Request;
 
@@ -10,6 +17,7 @@ use rocket_contrib::templates::Template;
 use rocket_contrib::serve::StaticFiles;
 
 use serde::Serialize;
+
 
 #[derive(Serialize)]
 enum NavbarOption {
