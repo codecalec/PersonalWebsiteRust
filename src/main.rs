@@ -83,13 +83,27 @@ fn blog_id(id: &RawStr) -> Template {
 }
 
 #[get("/resume")]
-fn resume() -> &'static str {
-    "resume"
+fn resume() -> Template {
+    #[derive(Serialize)]
+    struct ResumeContext {
+        navbar_status: NavbarOption,
+        resume_text: String,
+    }
+
+    let text = match db::get_text_by_description("resume_body") {
+        Ok(text) => text,
+        Err(e) => panic!("Could not find resume in db: {}", e),
+    };
+    let context = ResumeContext {
+        navbar_status: NavbarOption::Resume,
+        resume_text: text,
+    };
+    Template::render("resume", context)
 }
 
 #[catch(404)]
 fn not_found(req: &Request) -> String {
-    format!("Not Found: {}", req)
+    format!("Path Not Found: {}", req.uri())
 }
 
 fn main() {
