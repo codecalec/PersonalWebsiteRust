@@ -25,6 +25,9 @@
 .fa-envelope:before {
   content: "\f0e0"; }
 
+.fa-arrow-left:before {
+  content: "\f060"}
+
 @font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
