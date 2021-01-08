@@ -26,11 +26,11 @@
       <div class="one-third column">
         {% if navbar_status is matching("Resume") %}
         <a href="/resume" class = "nav active" class="nav">
-          Resume
+          Résumé
         </a>
         {% else %}
         <a href="/resume" class = "nav">
-          Resume
+          Résumé
         </a>
         {% endif %}
       </div>
