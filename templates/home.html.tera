@@ -4,10 +4,19 @@
     <h1>About Me</h1>
     <div class="row">
         <div class="one-third column">
-            <img src="static/portrait-min.jpg" alt="Alex Veltman Portrait">
+            <img src="static/portrait-min.jpeg" alt="Alex Veltman Portrait">
         </div>
         <div class="two-thirds column" style="font-size: 20px">
-            {{ content | safe }}
+            <div>
+                My name is Alex Veltman and I am a student at the University of Cape Town.
+                My interests lie in Physics, Mathematics and Computer Science.
+                This site was written in <a href="https://www.rust-lang.org/">Rust</a>🦀 using <a href = "https://rocket.rs/">Rocket</a>🚀.
+                The source code can be found on my <a href="https://github.com/codecalec/PersonalWebsiteRust">Github</a>.
+            </div>
+
+            <div>
+                Older versions of this website were written in <a href="https://github.com/codecalec/PersonalWebsiteReact">React</a> and using <a href="https://github.com/codecalec/PersonalWebsiteFlask">Flask</a>.
+            </div>
         </div>
     </div>
   </div>
