@@ -24,7 +24,3 @@ CREATE TABLE texts (
     content TEXT NOT NULL,
     FOREIGN KEY(page) REFERENCES pages(page_id)
 );
-
-INSERT INTO texts (page, description, content)
-VALUES (1,"about me", "My name is Alex Veltman and I am an undergraduate student at the University of Cape Town. My interests lie in Physics, Mathematics and Computer Science. This site was written in Python using <a href='https://flask.palletsprojects.com/'>Flask</a> and the source code for this site can be found <a href='https://github.com/codecalec/PersonalWebsiteFlask'>here</a>.");
-
