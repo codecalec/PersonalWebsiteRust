@@ -34,17 +34,10 @@ fn index() -> Template {
     #[derive(Serialize)]
     struct HomeContext {
         navbar_status: NavbarOption,
-        content: String,
     }
-
-    let content = match db::get_text_by_description("about me") {
-        Ok(text) => text,
-        Err(e) => panic!("Could not get about me text: {}", e),
-    };
 
     let context = HomeContext {
         navbar_status: NavbarOption::Home,
-        content: content
     };
     Template::render("home", context)
 }
