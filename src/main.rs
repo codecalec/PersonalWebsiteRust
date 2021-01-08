@@ -76,8 +76,16 @@ fn blog_id(id: &RawStr) -> Template {
 }
 
 #[get("/resume")]
-fn resume() -> &'static str {
-    "resume"
+fn resume() -> Template {
+    #[derive(Serialize)]
+    struct ResumeContext {
+        navbar_status: NavbarOption,
+    }
+
+    let context = ResumeContext {
+        navbar_status: NavbarOption::Resume,
+    };
+    Template::render("resume_content", context)
 }
 
 #[catch(404)]

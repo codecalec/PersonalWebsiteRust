@@ -1,0 +1,10 @@
+{% extends "base" %}
+{% block content %}
+<div class="section content" style="margin-top: 5%;">
+    <div class="container resume">
+        {% block resume_content %}
+            Resume
+        {% endblock resume_content %}
+    </div>
+</div>
+{% endblock content %}
