@@ -24,8 +24,8 @@ jobs:
         override: true
     - name: Setup Diesel
       run: |
-        apt-get update -qq && \
-        apt-get install -y libsqlite3-dev && \
+        sudo apt-get update -qq && \
+        sudo apt-get install -y libsqlite3-dev && \
         cargo install diesel_cli --no-default-features --features sqlite && \
         diesel setup
     - name: Build
