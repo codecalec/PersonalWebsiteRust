@@ -34,10 +34,17 @@ fn index() -> Template {
     #[derive(Serialize)]
     struct HomeContext {
         navbar_status: NavbarOption,
+        content: String,
     }
+
+    let content = match db::get_text_by_description("about me") {
+        Ok(text) => text,
+        Err(e) => panic!("Could not get about me text: {}", e),
+    };
 
     let context = HomeContext {
         navbar_status: NavbarOption::Home,
+        content: content
     };
     Template::render("home", context)
 }
@@ -80,17 +87,23 @@ fn resume() -> Template {
     #[derive(Serialize)]
     struct ResumeContext {
         navbar_status: NavbarOption,
+        resume_text: String,
     }
 
+    let text = match db::get_text_by_description("resume_body") {
+        Ok(text) => text,
+        Err(e) => panic!("Could not find resume in db: {}", e),
+    };
     let context = ResumeContext {
         navbar_status: NavbarOption::Resume,
+        resume_text: text,
     };
-    Template::render("resume_content", context)
+    Template::render("resume", context)
 }
 
 #[catch(404)]
 fn not_found(req: &Request) -> String {
-    format!("Not Found: {}", req)
+    format!("Path Not Found: {}", req.uri())
 }
 
 fn main() {

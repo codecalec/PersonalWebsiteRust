@@ -7,7 +7,6 @@ use dotenv::dotenv;
 use std::env;
 
 use models::Post;
-use schema::posts::dsl::posts;
 
 fn establish_connection() -> SqliteConnection {
     dotenv().ok();
@@ -17,6 +16,7 @@ fn establish_connection() -> SqliteConnection {
 }
 
 pub fn get_posts() -> Vec<Post> {
+    use schema::posts::dsl::posts;
     let connection = establish_connection();
     posts
         .load::<Post>(&connection)
@@ -24,8 +24,17 @@ pub fn get_posts() -> Vec<Post> {
 }
 
 pub fn get_post_by_id(id: i32) -> Result<Post, diesel::result::Error> {
+    use schema::posts::dsl::posts;
     let connection = establish_connection();
     posts.find(id).first(&connection)
+}
+
+pub fn get_text_by_description(desc:&str) -> Result<String, diesel::result::Error> {
+    use schema::texts::dsl::{texts, description, content};
+    let connection = establish_connection();
+    texts.filter(description.eq(desc))
+        .select(content)
+        .first::<String>(&connection)
 }
 
 #[cfg(test)]
