@@ -5,7 +5,7 @@ authors = ["Alex Veltman <alexveltman@protonmail.com>"]
 edition = "2018"
 
 [dependencies]
-rocket = "0.4.6"
+rocket = { version = "0.4.6", features = ["tls"] }
 diesel = { version = "^1.1.0", features = ["sqlite"] }
 dotenv = "0.15.0"
 serde = { version = "1.0", features = ["derive"] }
