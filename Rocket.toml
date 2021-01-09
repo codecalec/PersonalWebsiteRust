@@ -1,0 +1,3 @@
+[global.tls]
+certs = "/etc/letsencrypt/live/www.alexveltman.com/fullchain.pem"
+key = "/etc/letsencrypt/live/www.alexveltman.com/privkey.pem"
