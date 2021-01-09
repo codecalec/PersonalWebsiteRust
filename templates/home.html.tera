@@ -4,7 +4,7 @@
     <h1>About Me</h1>
     <div class="row">
         <div class="one-third column">
-            <img src="static/portrait-min.jpeg" alt="Alex Veltman Portrait">
+            <img src="static/portrait-min.jpeg" height="429" width="282" alt="Alex Veltman Portrait">
         </div>
         <div class="two-thirds column" style="font-size: 20px">
             <div>
