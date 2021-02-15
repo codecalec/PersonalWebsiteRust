@@ -1,32 +1,42 @@
 use crate::db::models::NewPost;
 
-use chrono::naive::NaiveDate;
 use chrono::offset::Local;
+use comrak::{markdown_to_html, ComrakOptions};
+
+use std::fs::File;
+use std::io::Read;
 use std::path::Path;
 
+use super::PostInfo;
+
 fn convert_markdown(md: String) -> String {
-    return md;
+    return markdown_to_html(&md, &ComrakOptions::default());
 }
 
-fn convert_file(content_file: &Path) -> String {
-    return convert_markdown("test".to_string());
+fn convert_file(content_file: &Path) -> std::io::Result<String> {
+    let mut file = File::open(content_file)?;
+    let mut content = String::new();
+    file.read_to_string(&mut content)?;
+    return Ok(convert_markdown(content));
 }
 
-fn generate_post<'a>(
-    title: &'a str,
-    subtitle: &'a str,
-    date: Option<NaiveDate>,
-    content_file: &Path,
+pub fn generate_post<'a>(
+    post_info: PostInfo<'a>
 ) -> NewPost<'a> {
-    let date = match date {
+    let date = match post_info.date {
         Some(d) => d,
         None => Local::today().naive_local(),
     };
-    let html_content = convert_file(content_file);
+
+    let html_content = match convert_file(post_info.content_file) {
+        Ok(content) => content,
+        Err(e) => panic!("error: {:?}", e),
+    };
+
     let post = NewPost {
         date,
-        title,
-        subtitle,
+        title: post_info.title,
+        subtitle: post_info.subtitle,
         content: html_content,
     };
 
