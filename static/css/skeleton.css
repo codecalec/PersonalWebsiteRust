@@ -28,7 +28,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .section.header {
-  background-color: #202020;
+  background-color: #002635;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -37,7 +37,7 @@
 }
 
 .section.footer {
-  background-color: #202020;
+  background-color: #002635;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -239,7 +239,22 @@
 }
 
 .active {
-  color: #3399cc;
+  color: #7fc06e;
+}
+
+.portrait {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.aboutme {
+    text-align: justify;
+}
+
+.post {
+    text-align: justify;
 }
 
 /* Base Styles
@@ -251,12 +266,12 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  font-size: 2em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Fira Sans', sans-serif;
-  color: #202020;
-  background-color: #FAFAFA;
+  color: #E6E6DC;
+  background-color: #002635;
 }
 
 img {
@@ -337,7 +352,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1eaedb;
+  color: #7fc06e;
 }
 a:hover {
   color: #0fa0ce;
