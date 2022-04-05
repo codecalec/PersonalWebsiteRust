@@ -511,17 +511,15 @@ ol {
   list-style: decimal inside;
 }
 ul ul {
-  list-style: none;
+  list-style: black circle;
 }
 ul ul li:before {
-  content: "-";
   text-emphasis: bold;
   padding-right: 8px;
 }
 
 ol,
 ul {
-  padding-left: 0;
   margin-top: 0;
 }
 ul ul,
