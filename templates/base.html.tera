@@ -12,17 +12,15 @@
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- FONT
-	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-     <link rel="preconnect" href="https://fonts.gstatic.com">
-     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital@0;1&display=swap" rel="stylesheet">
-
     <!-- CSS
-	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <link rel="preload" href="static/css/skeleton.css" as="style"/>
+	  
     <link rel="stylesheet" href="static/css/normalize.css" />
     <link rel="stylesheet" href="static/css/skeleton.css" />
     <link rel="stylesheet" href="static/css/font-awesome.css" />
-
+    
     <!-- Favicon
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
@@ -44,6 +42,7 @@
     </script>
   </head>
   <body>
+    <script>0</script> <!-- stop FOUC -->
     {% include "navbar" %}
     {% block content %}
     {% endblock content %}

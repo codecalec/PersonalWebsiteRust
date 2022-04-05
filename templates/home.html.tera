@@ -1,16 +1,18 @@
 {% extends "base" %} {% block content %}
-<div class="section content" style="margin-top: 10%;">
+<div class="section content" style="margin-top: 5%;">
   <div class="container">
     <h1>About Me</h1>
     <div class="row">
-        <div class="one-third column">
-            <img src="static/portrait-min.jpeg" height="429" width="282" alt="Alex Veltman Portrait">
+        <div>
+            <img class="portrait" src="static/portrait-min.jpeg" height="429" width="282" alt="Alex Veltman Portrait">
         </div>
-        <div class="two-thirds column" style="font-size: 20px">
+    </div>
+    <div class="row">
+        <div class="aboutme">
             <div>
-                My name is Alex Veltman and I am a student at the University of Cape Town.
+                My name is Alex Veltman and I am a Physics student at the University of Cape Town.
                 My interests lie in Physics, Mathematics and Computer Science.
-                This site was written in <a href="https://www.rust-lang.org/">Rust</a>🦀 using <a href = "https://rocket.rs/">Rocket</a>🚀.
+                This site was written in <a href="https://www.rust-lang.org/">Rust</a> 🦀 using <a href = "https://rocket.rs/">Rocket</a> 🚀.
                 The source code can be found on my <a href="https://github.com/codecalec/PersonalWebsiteRust">Github</a>.
             </div>
 
