@@ -1,7 +1,7 @@
 <div class="section header">
   <div class="container">
     <div class="row">
-      <div class="one-third column">
+      <div class="three columns">
         {% if navbar_status is matching("Home") %}
         <a href="/" class = "nav active" class="nav">
           Home
@@ -12,7 +12,7 @@
         </a>
         {% endif %}
       </div>
-      <div class="one-third column">
+      <div class="three columns">
         {% if navbar_status is matching("Blog") %}
         <a href="/blog" class = "nav active" class="nav">
           Blog
@@ -23,7 +23,7 @@
         </a>
         {% endif %}
       </div>
-      <div class="one-third column">
+      <div class="three columns">
         {% if navbar_status is matching("Resume") %}
         <a href="/resume" class = "nav active" class="nav">
           Résumé
@@ -31,6 +31,17 @@
         {% else %}
         <a href="/resume" class = "nav">
           Résumé
+        </a>
+        {% endif %}
+      </div>
+      <div class="three columns">
+        {% if navbar_status is matching("Research") %}
+        <a href="/research" class = "nav active" class="nav">
+          Research
+        </a>
+        {% else %}
+        <a href="/research" class = "nav">
+          Research
         </a>
         {% endif %}
       </div>

@@ -13,7 +13,7 @@ use db::models::Post;
 use rocket::Request;
 
 use rocket::fs::FileServer;
-use rocket_dyn_templates::Template;
+use rocket_dyn_templates::{Template, context};
 
 use serde::Serialize;
 
@@ -22,12 +22,12 @@ enum NavbarOption {
     Home,
     Blog,
     Resume,
+    Research,
 }
 
 /// Defines routing for landing page at `/`
 #[get("/")]
 fn index() -> Template {
-
     #[derive(Serialize)]
     struct HomeContext {
         navbar_status: NavbarOption,
@@ -49,9 +49,9 @@ fn blog() -> Template {
     }
 
     let posts = db::get_posts();
-    let context = PostListContext{
+    let context = PostListContext {
         navbar_status: NavbarOption::Blog,
-        posts: posts
+        posts: posts,
     };
     Template::render("blog", context)
 }
@@ -65,7 +65,7 @@ fn blog_id(id: &str) -> Template {
     }
     let id = id.parse::<i32>().unwrap();
     let post = db::get_post_by_id(id).expect("Could not find id in db");
-    let context = PostContext{
+    let context = PostContext {
         navbar_status: NavbarOption::Blog,
         post: post,
     };
@@ -91,6 +91,14 @@ fn resume() -> Template {
     Template::render("resume", context)
 }
 
+#[get("/research")]
+fn research() -> Template {
+    Template::render(
+        "research",
+        context! { navbar_status: NavbarOption::Research },
+    )
+}
+
 #[catch(404)]
 fn not_found(req: &Request) -> String {
     format!("Path Not Found: {}", req.uri())
@@ -100,7 +108,7 @@ fn not_found(req: &Request) -> String {
 fn rocket() -> _ {
     rocket::build()
         .register("/", catchers![not_found])
-        .mount("/", routes![index, blog, blog_id, resume])
+        .mount("/", routes![index, blog, blog_id, resume, research])
         .mount("/static", FileServer::from("static"))
         .attach(Template::fairing())
 }

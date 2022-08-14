@@ -1,0 +1,34 @@
+{% extends "base" %} {% block content %}
+<div class="section content" style="margin-top: 5%;">
+  <div class="container">
+    <h1>Research</h1>
+    <div>
+        <h2>Conferences</h2>
+        <div class="container">
+            <h3>South African Institute of Physics 2022</h3>
+            <h5><i>July 2022</i></h5>
+            <h5>Presentation: <b>A search for tWZ production with the ATLAS detector using the three and four lepton final states in proton-proton collisions at √s = 13TeV</b></h5>
+            <div class="row">
+                <div class="one-half column" style="text-align:center">
+                    <a href="static/research/saip2022/slides.pdf">Slides</a>
+                </div>
+                <div class="one-half column" style="text-align:center">
+                    <a href="">Proceedings</a>
+                </div>
+             </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>Writing</h2>
+        <div class="container">
+            <h3>BSc (Hons) Thesis</h3>
+            <h5><i>November 2021</i></h5>
+            <h5>Title: <b>Constraining the Standard Model Effective Field Theory with 2D differential cross section of top quark pair production</b></h5>
+            <div class="row" style="text-align:center">
+                <a href="static/research/honours/AlexVeltmanHonoursProject.pdf">PDF</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
