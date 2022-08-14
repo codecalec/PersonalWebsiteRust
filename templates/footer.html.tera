@@ -1,6 +1,6 @@
 <div class="section footer">
   <div class="container">
-    <div class="row">
+    <div class="row" style="text-align:center">
       <div class="one-third column">
         <a href="https://github.com/codecalec"
           ><i class="nav fab fa-github"></i
