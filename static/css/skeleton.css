@@ -39,13 +39,14 @@
 .section.footer {
   background-color: #002635;
   position: fixed;
+  height: 3.2rem;
   left: 0;
   bottom: 0;
   right: 0;
 }
 
 .section.content {
-  margin-bottom: 10%;
+  margin-bottom: 3.2rem;
 }
 
 @media screen and (max-width: 1000px) {
@@ -60,7 +61,7 @@
   max-width: 960px;
   margin: 0 auto;
   margin-top: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
@@ -195,67 +196,6 @@
   }
 }
 
-.nav {
-  display: inline-block;
-  width: fit-content;
-  color: #555;
-  text-align: center;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-left: 30%;
-  margin-right: 30%;
-  line-height: 38px;
-}
-
-@media screen and (min-width: 300px) {
-  .nav {
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 400px) {
-  .nav {
-    font-size: 16px;
-  }
-}
-
-@media screen and (min-width: 550px) {
-  .nav {
-    font-size: 18px;
-  }
-}
-
-.nav.fab,
-.nav.far {
-  color: #3399cc;
-  font-size: 28px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
-
-.nav.fab:hover {
-  color: #0fa0ce;
-}
-
-.active {
-  color: #7fc06e;
-}
-
-.portrait {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-}
-
-.aboutme {
-    text-align: justify;
-}
-
-.post {
-    text-align: justify;
-}
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -278,7 +218,7 @@ html {
 }
 
 body {
-  font-size: 2em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  font-size: 1.6rem; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: 'Fira Sans';
@@ -627,6 +567,70 @@ hr {
   content: "";
   display: table;
   clear: both;
+}
+
+.nav {
+  display: inline-block;
+  width: fit-content;
+  color: #555;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 30%;
+  margin-right: 30%;
+  line-height: 3.8rem;
+}
+
+@media screen and (min-width: 300px) {
+  .nav {
+    font-size: 1.0rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .nav {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .nav {
+    font-size: 1.6rem;
+  }
+}
+
+.nav.fab,
+.nav.far {
+  color: #3399cc;
+  font-size: 2.4rem;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.nav.fab:hover {
+  color: #0fa0ce;
+}
+
+.active {
+  color: #7fc06e;
+}
+
+img.portrait {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    height: 15%;
+    max-width: 30%;
+}
+
+.aboutme {
+    text-align: justify;
+}
+
+.post {
+    text-align: justify;
 }
 
 /* Media Queries

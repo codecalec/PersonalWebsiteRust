@@ -2,23 +2,16 @@
 <div class="section content" style="margin-top: 5%;">
   <div class="container">
     <h1>About Me</h1>
-    <div class="row">
-        <div>
-            <img class="portrait" src="static/portrait-min.jpeg" height="429" width="282" alt="Alex Veltman Portrait">
-        </div>
+    <div>
+        <img class="portrait" src="static/portrait-min.jpeg" height="429" width="282" alt="Alex Veltman Portrait">
     </div>
-    <div class="row">
+    <div class="container">
         <div class="aboutme">
-            <div>
-                My name is Alex Veltman and I am a Physics student at the University of Cape Town.
-                My interests lie in particle physics, data analysis and software development.
-                This site was written in <a href="https://www.rust-lang.org/">Rust</a> 🦀 using <a href = "https://rocket.rs/">Rocket</a> 🚀.
-                The source code can be found on my <a href="https://github.com/codecalec/PersonalWebsiteRust">Github</a>.
-            </div>
-
-            <div>
-                Older versions of this website were written in <a href="https://github.com/codecalec/PersonalWebsiteReact">React</a> and using <a href="https://github.com/codecalec/PersonalWebsiteFlask">Flask</a>.
-            </div>
+            My name is Alex Veltman and I am a Physics student at the University of Cape Town.
+            My interests lie in particle physics, data analysis and software development.
+            This site was written in <a href="https://www.rust-lang.org/">Rust</a> 🦀 using <a href = "https://rocket.rs/">Rocket</a> 🚀.
+            The source code can be found on my <a href="https://github.com/codecalec/PersonalWebsiteRust">Github</a>.
+            Older versions of this website were written in <a href="https://github.com/codecalec/PersonalWebsiteReact">React</a> and using <a href="https://github.com/codecalec/PersonalWebsiteFlask">Flask</a>.
         </div>
     </div>
   </div>
