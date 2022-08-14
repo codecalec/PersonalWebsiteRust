@@ -2,19 +2,15 @@
 name = "personal-website-rust"
 version = "0.1.0"
 authors = ["Alex Veltman <alexveltman@protonmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
-rocket = "0.4.6"
-diesel = { version = "^1.1.0", features = ["sqlite", "chrono"] }
+rocket = "0.5.0-rc.2"
+rocket_dyn_templates = { version = "0.1.0-rc.2", features = ["tera"] }
+diesel = { version = "1.4.4", features = ["sqlite", "chrono"] }
 dotenv = "0.15.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 chrono = "0.4"
 comrak = "0.9"
 clap = "2"
-
-[dependencies.rocket_contrib]
-version = "0.4.6"
-default-features = false
-features = ["serve", "tera_templates"]

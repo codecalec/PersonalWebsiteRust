@@ -1,5 +1,3 @@
-#![feature(proc_macro_hygiene, decl_macro)]
-
 #[macro_use]
 extern crate rocket;
 
@@ -12,11 +10,10 @@ mod db;
 
 use db::models::Post;
 
-use rocket::http::RawStr;
 use rocket::Request;
 
-use rocket_contrib::serve::StaticFiles;
-use rocket_contrib::templates::Template;
+use rocket::fs::FileServer;
+use rocket_dyn_templates::Template;
 
 use serde::Serialize;
 
@@ -60,13 +57,13 @@ fn blog() -> Template {
 }
 
 #[get("/blog?<id>")]
-fn blog_id(id: &RawStr) -> Template {
+fn blog_id(id: &str) -> Template {
     #[derive(Serialize)]
     struct PostContext {
         navbar_status: NavbarOption,
         post: Post,
     }
-    let id = id.url_decode().unwrap().parse::<i32>().unwrap();
+    let id = id.parse::<i32>().unwrap();
     let post = db::get_post_by_id(id).expect("Could not find id in db");
     let context = PostContext{
         navbar_status: NavbarOption::Blog,
@@ -99,11 +96,11 @@ fn not_found(req: &Request) -> String {
     format!("Path Not Found: {}", req.uri())
 }
 
-fn main() {
-    rocket::ignite()
-        .register(catchers![not_found])
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .register("/", catchers![not_found])
         .mount("/", routes![index, blog, blog_id, resume])
-        .mount("/static", StaticFiles::from("static"))
+        .mount("/static", FileServer::from("static"))
         .attach(Template::fairing())
-        .launch();
 }
