@@ -22,6 +22,14 @@
     <div>
         <h2>Writing</h2>
         <div class="container">
+            <h3>MSc Thesis</h3>
+            <h5><i>August 2023</i></h5>
+            <h5>Title: <b>A search for tWZ production at the ATLAS experiment</b></h5>
+            <div class="row" style="text-align:center">
+                <a href="static/research/masters/AlexVeltmanMastersThesis.pdf">PDF</a>
+            </div>
+        </div>
+        <div class="container">
             <h3>BSc (Hons) Thesis</h3>
             <h5><i>November 2021</i></h5>
             <h5>Title: <b>Constraining the Standard Model Effective Field Theory with 2D differential cross section of top quark pair production</b></h5>
