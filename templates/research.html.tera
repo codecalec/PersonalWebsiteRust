@@ -51,5 +51,16 @@
             </div>
         </div>
     </div>
+    <div>
+        <h2>Posters</h2>
+        <div class="container">
+            <h3>STFC Summer School 2024</h3>
+            <h5><i>August 2024</i></h5>
+            <h5>Title: <b>A search for displaced 𝜏 production at the ATLAS experiment</b></h5>
+            <div class="row" style="text-align:center">
+                <a href="static/research/stfc_summer_school_2024/stfc_poster.pdf">PDF</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}
