@@ -3,7 +3,7 @@
   <div class="container">
     <h1>About Me</h1>
     <div>
-        <img class="portrait" src="static/portrait-min.jpeg" height="429" width="282" alt="Alex Veltman Portrait">
+        <img class="portrait" src="static/portrait-min.png" height="429" width="282" alt="Alex Veltman Portrait">
     </div>
     <div class="container">
         <div class="aboutme">
