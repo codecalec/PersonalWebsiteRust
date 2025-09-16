@@ -62,5 +62,16 @@
             </div>
         </div>
     </div>
+    <div>
+        <h2>Outreach</h2>
+        <div class="container">
+            <h3>Liverpool@CERN Particle Physics School</h3>
+            <h5><i>20 August 2025</i></h5>
+            <h5>Title: <b>Beyond the Standard Model</b></h5>
+            <div class="row" style="text-align:center">
+                <a href="https://indico.ph.liv.ac.uk/event/2031/contributions/9781/attachments/4542/6425/alex_veltman_BSM.pdf">PDF</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}
